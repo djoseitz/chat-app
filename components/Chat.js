@@ -39,6 +39,7 @@ export default class Chat extends React.Component {
   }
 
   componentDidMount() {
+    let userJoinedMessage = `User ${this.props.route.params.name} has joined the chat.`;
     this.setState({
       messages: [
         {
@@ -53,7 +54,7 @@ export default class Chat extends React.Component {
         },
         {
           _id: 2,
-          text: this.props.navigation.state.params.name + 'has entered the chat',
+          text: userJoinedMessage,
           createdAt: new Date(),
           system: true,
         },
@@ -82,10 +83,11 @@ export default class Chat extends React.Component {
 
   render() {
     let name = this.props.route.params.name;
+    let color = this.props.route.params.color;
     this.props.navigation.setOptions({ title: name });
     return (
       <View style={{
-        flex: 1, 
+        flex: 1, backgroundColor: color
         }}
         >
         <GiftedChat
