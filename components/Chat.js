@@ -37,19 +37,30 @@ export default class Chat extends React.Component {
   }
 
   componentDidMount() {
-    this.authUnsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-        firebase.auth().signInAnonymously();
+    NetInfo.fetch().then(connection => {
+      if (connection.isConnected) {
+        console.log('online');
+        this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+          if (!user) {
+            await firebase.auth().signInAnonymously();
+          }
+          this.setState({
+            isConnected: true,
+            uid: user.uid,
+            messages: [],
+          });
+          this.referenceChatMessages = firebase.firestore().collection('messages');
+          this.unsubscribe = this.referenceChatMessages
+            .orderBy("createdAt", "desc")
+            .onSnapshot(this.onCollectionUpdate);
+        });
+      } else {
+        console.log('offline');
+        this.setState({
+          isConnected: false
+        });
+        this.getMessages();
       }
-
-      this.setState({
-        uid: user.uid,
-        messages: [],
-      });
-
-      this.unsubscribe = this.referenceChatMessages
-        .orderBy("createdAt", "desc")
-        .onSnapshot(this.onCollectionUpdate);
     });
   }
 
@@ -95,6 +106,25 @@ export default class Chat extends React.Component {
       }
     );
   }
+
+  async saveMessages() {
+    try {
+      await AsyncStorage.setItem('messages', JSON.stringify(this.state.messages));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  async deleteMessages() {
+    try {
+      await AsyncStorage.removeItem('messages');
+      this.setState({
+        messages: []
+      })
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   
   renderBubble(props) {
     return (
