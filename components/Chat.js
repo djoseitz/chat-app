@@ -1,5 +1,7 @@
 import React from "react";
 import { GiftedChat, Bubble } from "react-native-gifted-chat";
+import AsyncStorage from '@react-native-community/async-storage';
+import NetInfo from '@react-native-community/netinfo';
 
 import {
   View,
@@ -18,12 +20,12 @@ export default class Chat extends React.Component {
     if (!firebase.apps.length) {
       firebase.initializeApp({
         apiKey: "AIzaSyD6rfRMXKW26TAKhDt9r11H_FGnFDrLKRE",
-      authDomain: "chatterbox-7ceb6.firebaseapp.com",
-      projectId: "chatterbox-7ceb6",
-      storageBucket: "chatterbox-7ceb6.appspot.com",
-      messagingSenderId: "463881832563",
-      appId: "1:463881832563:web:b09cbbaf588e06f5cc4206",
-      measurementId: "G-BX5Q1BFGYG",
+        authDomain: "chatterbox-7ceb6.firebaseapp.com",
+        projectId: "chatterbox-7ceb6",
+        storageBucket: "chatterbox-7ceb6.appspot.com",
+        messagingSenderId: "463881832563",
+        appId: "1:463881832563:web:b09cbbaf588e06f5cc4206",
+        measurementId: "G-BX5Q1BFGYG",
       });
     }
 
@@ -82,6 +84,7 @@ export default class Chat extends React.Component {
       user: message.user,
     });
   }
+
   onSend(messages = []) {
     this.setState(
       (previousState) => ({
@@ -92,6 +95,7 @@ export default class Chat extends React.Component {
       }
     );
   }
+  
   renderBubble(props) {
     return (
       <Bubble
