@@ -7,9 +7,9 @@ import NetInfo from "@react-native-community/netinfo";
 const firebase = require("firebase");
 require("firebase/firestore");
 
-clearAsyncStorage = async() => {
-  AsyncStorage.clear();
-}
+// clearAsyncStorage = async() => {
+//   AsyncStorage.clear();
+// }
 
 export default class Chat extends React.Component {
   constructor() {
