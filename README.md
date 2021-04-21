@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a messaging application for mobile devices that was developed using React Native, Expo's Gifted Chat, and Google Firebase. It provides users with a chat interface to send messages with options to share images and their location via an action button.
+This is a chat application for mobile devices that was developed using React Native, Expo's Gifted Chat, and Google Firebase. It provides users with a chat interface to send messages with options to share images and their location via an action button.
 
 ## Features
 
@@ -32,7 +32,7 @@ This is a messaging application for mobile devices that was developed using Reac
   - [iOS Simulator](https://docs.expo.io/workflow/ios-simulator/)
 - Configured [Firebase database](https://codinglatte.com/posts/how-to/how-to-create-a-firebase-project/)
 
-### Then:
+### Once Necessary Installations Are Complete:
 
 - Clone the repository
   - Integrate your own Firebase configuration in Chat.js (lines 31-37)
