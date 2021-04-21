@@ -13,6 +13,7 @@ This is a chat application for mobile devices that was developed using React Nat
 
 ## Screenshots
 
+<img src="/assets/StartSS.jpg" width="100"/>
 ![Start Screenshot](/assets/StartSS.jpg)
 ![Chat Screenshot](/assets/ChatSS.jpeg)
 ![Type Screenshot](/assets/TypeSS.jpg)
