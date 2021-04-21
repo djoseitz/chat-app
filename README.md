@@ -43,7 +43,7 @@ Action Button
   - [iOS Simulator](https://docs.expo.io/workflow/ios-simulator/)
 - Configured [Firebase database](https://codinglatte.com/posts/how-to/how-to-create-a-firebase-project/)
 
-### Once Necessary Installations Are Complete:
+### Once necessary installations are complete:
 
 - Clone the repository
   - Integrate your own Firebase configuration in Chat.js (lines 31-37)
