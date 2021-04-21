@@ -13,10 +13,17 @@ This is a chat application for mobile devices that was developed using React Nat
 
 ## Screenshots
 
-<img src="/assets/StartSS.jpg" width="100"/>
-<img src="/assets/ChatSS.jpg" width="100"/>
-<img src="/assets/TypeSS.jpg" width="100"/>
-<img src="/assets/ActionSS.jpg" width="100"/>
+Start Screen
+<img src="/assets/StartSS.jpg" width="200"/>
+
+Chat Screen
+<img src="/assets/ChatSS.jpeg" width="200"/>
+
+Keyboard Input
+<img src="/assets/TypeSS.jpg" width="200"/>
+
+Action Button
+<img src="/assets/ActionSS.jpg" width="200"/>
 
 ## Setup
 
